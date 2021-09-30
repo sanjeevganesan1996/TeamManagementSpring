@@ -1,7 +1,7 @@
 pipeline{
   agent any  
     tools{
-      maven 'maven'
+      maven 'M3'
       jdk 'JDK11'
     }
   
@@ -21,7 +21,7 @@ pipeline{
     stage("Build & SonarQube analysis") {
             agent any
             steps {
-              withSonarQubeEnv('SonarSpring') {
+              withSonarQubeEnv('Sonar-team') {
                 sh 'java -version'
                 sh 'mvn clean package sonar:sonar'
               }
